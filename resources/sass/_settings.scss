@@ -1,0 +1,168 @@
+$color-bg: red;
+$white: #fff;
+$green: #44b244;
+$gray: #cccccc;
+$logo-gray: #c2c2c2;
+$button_green: #009900;
+$icon: #006d00;
+$haeding-active: #00a651;
+
+
+// light 300
+// light 300 italic
+// regular 400
+// semi-bold 600
+// bold 700
+// black 900
+$fw-300: 300;
+$fw-400: 400;
+$fw-600: 600;
+$fw-700: 700;
+$fw-900: 900;
+$f14: 0.7rem; // => 14px;
+$f16: 0.8rem; // => 16px;
+$f20: 1rem; // => 20px;
+$f22: 1.1rem; // => 22px;
+$f24: 1.2rem; // => 22px;
+$f27: 1.35rem; // => 27px;
+$f32: 1.6rem; // => 32px;
+$f45: 2.25rem; // => 45px;
+$f60: 3.0rem; // => 60px;
+$f64: 3.2rem; // => 64px;
+
+
+//text
+$header-text: #383838;
+$header-phone: #939393;
+$text-gray: #787878;
+$contact-gray: #6b6b6b;
+$button_dark: #464646;
+$heading_black: #121212;
+
+// BUTTON
+.button {
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: inline-block;
+    line-height: 1rem;
+    text-transform: uppercase;
+    font-size: $f14;
+    font-weight: $fw-600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 300ms;
+    @media (max-width: map-get($grid, lg)) {
+      font-size: $f20;
+    }
+}
+
+.button--green {
+    background: $button_green;
+    &:hover {
+      background: #006d00;
+    }
+}
+.button--dark {
+  color: $white;
+  background: $button_dark;
+  &:hover {
+    background: #939393;
+  }
+}
+
+.description {
+  font-weight: $fw-300;
+  font-size: $f20;
+  color: $text-gray;
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  @media (max-width: map-get($grid, sm)) {
+    font-size: $f22;
+    max-width: 90%;
+  }
+} 
+
+
+
+
+//GLOBAL PRODUCT BOX
+.products-box {
+  padding: 0 5px;
+  .photo {
+      box-shadow: 0px 3px 5px $gray;
+      img {
+          width: 100%;
+      }
+  }
+  .more-info {
+      box-shadow: 0px 3px 5px $gray;
+      z-index: 700;
+      background: $white;
+      margin-bottom: 10px;
+      .title {
+          padding: 10px;
+          a {
+            font-weight: $fw-900;
+            font-size: $f16;
+            color: #383838!important;
+            @media (max-width: map-get($grid, sm)){
+              font-size: $f20;
+            }
+          }
+      }
+      .more-info--info {
+          color: #006d00;
+          font-weight: $fw-300;
+          font-size: $f14;
+          text-align: right;
+          display: block;
+          padding: 0 10px 10px 0;
+          @media (max-width: map-get($grid, sm)) {
+            font-size: $f22;
+          }
+      }
+  }
+}
+
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,600,700,900&subset=latin-ext');
+
+html, .button, * {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+// FONT  
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+  }
+  
+  @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+  
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+        font-size: $min-font-size;
+        @media screen and (min-width: $min-vw) {
+          font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+        @media screen and (min-width: $max-vw) {
+          font-size: $max-font-size;
+        }
+      }
+    }
+  }
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 12px;
+$max_font: 20px;
+
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+

@@ -1,0 +1,9 @@
+$grid: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+// @media (min-width: map-get($grid, xs)) and (max-width: map-get($grid, sm))

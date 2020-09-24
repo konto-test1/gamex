@@ -1,0 +1,21 @@
+.tile {
+    background: $tile!important;
+    color: $tile-text!important;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.active {
+    color: $blue!important;
+}
+
+.menu a {
+    color: $link;
+}
+
+body {
+    height: 100%;
+    background-color: $back!important;
+    color: white!important;
+}

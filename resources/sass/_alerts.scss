@@ -1,0 +1,12 @@
+.custom_alert {
+    max-width: 90%;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 15%;
+    ul {
+        margin: 0;
+    }
+}

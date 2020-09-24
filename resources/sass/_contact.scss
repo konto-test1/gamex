@@ -1,0 +1,262 @@
+$color-bg: red;
+$white: #fff;
+$green: #44b244;
+$gray: #cccccc;
+$logo-gray: #c2c2c2;
+$button_green: #009900;
+$icon: #006d00;
+$haeding-active: #00a651;
+
+
+// light 300
+// light 300 italic
+// regular 400
+// semi-bold 600
+// bold 700
+// black 900
+$fw-300: 300;
+$fw-400: 400;
+$fw-600: 600;
+$fw-700: 700;
+$fw-900: 900;
+$f14: 0.7rem; // => 14px;
+$f16: 0.8rem; // => 16px;
+$f20: 1rem; // => 20px;
+$f22: 1.1rem; // => 22px;
+$f27: 1.35rem; // => 22px;
+$f32: 1.6rem; // => 32px;
+$f45: 2.25rem; // => 45px;
+$f60: 3.0rem; // => 60px;
+$f64: 3.2rem; // => 64px;
+
+
+//text
+$header-text: #383838;
+$header-phone: #939393;
+$text-gray: #787878;
+$contact-gray: #6b6b6b;
+$button_dark: #464646;
+$heading_black: #121212;
+
+
+
+.header-small {
+  height: 450px;
+  background-image: url('/img/back.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .content {
+    height: calc(450px - 100px);
+    line-height: 3.2rem;
+    position: absolute;
+    color: $white;
+    z-index: 10;
+    width: 75%;
+    padding-top: 60px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    max-width: 1300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    &__title {
+      font-size: $f64;
+      font-weight: $fw-900;
+      text-transform: uppercase;
+    }
+
+    &__title-green {
+      color: $green;
+    }
+  }
+}
+
+
+//global white back
+.content-page {
+  min-height: 400px;
+  margin-top: -100px;
+  position: relative;
+  background-color: $white;
+  margin-bottom: 40px;
+  box-shadow: 0px 3px 5px $gray;
+  padding: 70px 30px;
+}
+
+//global for subpage
+.content-subpage {
+  margin-top: -100px;
+  position: relative;
+  background-color: $white;
+  padding: 70px;
+  margin-bottom: 40px;
+  box-shadow: 0px 3px 5px $gray;
+  @media (max-width: map-get($grid, sm)){
+    padding: 40px 20px;
+  }
+}
+
+
+//global for promo boxes
+.promo-box {
+  text-align: center;
+  &-icon {
+      color: $icon;
+      font-size: 3.5rem;
+  }
+  &-title {
+      font-size: $f20;
+      font-weight: $fw-300;
+      color: $text-gray;
+      max-width: 80%;
+      margin: 0 auto;
+  }
+  @media (max-width: map-get($grid, sm)) {
+    margin-bottom: 25px;
+    &-title {
+      font-size: $f22;
+    }
+  }
+}
+
+// scroll animation
+@keyframes scroll {
+  from {
+      opacity: 1;
+      bottom: 40px;
+  }
+  to {
+      opacity: 0;
+      bottom: 38px;
+  }
+}
+
+
+//contact page
+.contact-page {
+  margin-top: 80px;
+  font-weight: $fw-300;
+  font-size: $f22;
+  margin-bottom: 100px;
+  .address {
+    .company {
+      font-size: $f32;
+      font-weight: $fw-900;
+      margin-bottom: 10px;
+    }
+  }
+  .contact-details {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+
+//offer page
+.offer-page {
+  margin-top: 70px;
+  .full-offer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    @media (min-width: map-get($grid, sm)) and (max-width: map-get($grid, md)){
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: map-get($grid, sm)){
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .products-box {
+    max-width: 300px;
+  }
+}
+
+// product page
+.product-page {
+  .desc {
+    font-size: $f16;
+    font-weight: $fw-300;
+    color: $text-gray;
+    margin-top: 30px;
+    &:first-child {
+      margin: 10px 0 30px 0;
+    }
+    @media (max-width: map-get($grid, sm)){
+      font-size: $f20;
+    }
+  }
+  .promo {
+    width: 100%;
+    margin: 60px 0 30px 0;
+    &-box {
+      &-icon {
+        color: #44b244;
+      }
+      &-title {
+        font-size: $f16;
+        font-weight: $fw-700;
+        color: $heading_black;
+        @media (max-width: map-get($grid, sm)){
+          font-size: $f20;
+        }
+      }
+    }
+  }
+}
+
+//custom page for "podstawy pod wience"
+.product-custom-page {
+  .products {
+    .single {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 20px;
+      .photo {
+        img {
+          max-width: 120px;
+        }
+      }
+      .info-product {
+        .title {
+          font-weight: $fw-700;
+          font-size: $f22;
+        }
+        .price {
+          font-size: $f16;
+          color: $green;
+          font-weight: $fw-700;
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  margin: 0 auto;
+  padding-top: 20px;
+  .page-item  {
+    a {
+      padding: .25rem .5rem;
+      color: #6c757d;
+    }
+    span {
+      padding: .25rem .5rem;
+      color: #6c757d;
+    }
+  }
+  .active {
+    .page-link {
+      background: $green;
+      border: 1px solid $green;
+    }
+  }
+}
